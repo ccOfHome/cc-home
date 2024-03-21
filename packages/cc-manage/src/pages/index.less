@@ -1,0 +1,61 @@
+.layout{
+  overflow: visible;
+  .site_header{
+    position: sticky;
+    top: 0;
+    display: flex;
+    padding-inline: 0 !important;
+    z-index: 100;
+    .logo_container{
+      width: 200px;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+    .top_menu{
+      width: calc(100vw - 300px);
+    }
+    .user_avatar{
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  .sider{
+    height: calc(100vh - 64px) !important;
+    position: sticky;
+    top: 64px;
+    .collapsed_btn{
+      position: absolute;
+      left: 5px;
+      bottom: 5px;
+    }
+  }
+  .site_layout{
+    .site_layout_content{
+      max-height: calc(100vh - 64px -69px);
+      padding: 24px;
+    }
+    .site_layout_footer{
+      height: 48px;
+      position: sticky;
+      bottom: 0;
+      left: 200px;
+      background-color: @themeColor;
+      color: white;
+      text-align: center;
+      z-index: 3;
+    }
+  }
+}
+
+
