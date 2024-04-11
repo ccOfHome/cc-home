@@ -33,7 +33,7 @@ export class ArticleController {
         status,
         backgroundUrl,
         createTime,
-        publishTime: '',
+        publishTime: createTime,
         userId: '1',
         isDelete: 0,
       });

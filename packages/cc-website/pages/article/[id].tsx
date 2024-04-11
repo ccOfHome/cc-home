@@ -7,10 +7,11 @@ import articleStyles from './Article.module.css'
 import { queryArticleById } from '../api/article';
 
 import Header from '../components/header/header';
-import { FieldTimeOutlined, UserOutlined } from '@ant-design/icons';
 
 import { formatDistance } from 'date-fns'
 import { zhCN } from 'date-fns/locale'
+import { FieldTimeOutlined, UserOutlined } from '@ant-design/icons';
+import Banner from '../components/banner/banner';
 
 export default function Article() {
 
@@ -21,6 +22,8 @@ export default function Article() {
   const [article, setArticle] = useState('');
   const [publishTime, setPublishTime] = useState('2000-1-1 00:00');
   const [userId, setUserId] = useState(1);
+  const [container, setContainer] = useState<HTMLDivElement | null>(null);
+
 
   const queryArticle = async () => {
     if(id) {
@@ -43,8 +46,8 @@ export default function Article() {
         contentSelector: '#tocContent',
         headingSelector: 'h1, h2, h3, h4, h5, h6',
         hasInnerContainers: true,
-        // linkClass: 'toc-link',
-        // isCollapsedClass: 'is-collapsed',
+        linkClass: 'toc-link',
+        isCollapsedClass: 'is-collapsed',
         scrollSmooth: true,
         scrollSmoothDuration: 420,
         headingsOffset: 40,
@@ -52,7 +55,7 @@ export default function Article() {
         includeHtml: true,
         includeTitleTags: true,
       });
-    }, 100)
+    }, 200)
 
     return () => {
       tocbot.destroy();
@@ -65,27 +68,35 @@ export default function Article() {
         <Row className={articleStyles.header}>
           <Header/>
         </Row>
+        <Row className={articleStyles.banner}>
+          <Banner />
+        </Row>
         <Row className={articleStyles.articleDesc}>
           <Row className={articleStyles.articleTitle}>{ title }</Row>
           <Row className={articleStyles.description}>
             <Col className={articleStyles.creator}>
-              <UserOutlined />
-              <span className={articleStyles.articleData}>{ userId }</span>
+              <UserOutlined rev={undefined} />
+              {/* <span className={articleStyles.articleData}>{ userId }</span> */}
+              <span className={articleStyles.articleData}>CC码码</span>
             </Col>
             <Col className={articleStyles.updateTime}>
-              <FieldTimeOutlined />
+              <FieldTimeOutlined rev={undefined} />
               <span className={articleStyles.articleData}>{ publishTime }</span>
             </Col>
           </Row>
         </Row>
+        <div className={articleStyles.catalog}>
+          <div className={articleStyles.tocWrapper}>
+            <div className={articleStyles.tocHeader}>
+              <span>目录</span>
+            </div>
+            <div id='toc' className={articleStyles.toc}></div>
+          </div>
+        </div>
         <Row className={articleStyles.articleContent}>
           <Watermark className={articleStyles.tocContainer} content="CC码码">
             <div id='tocContent' className={articleStyles.articleDetail} dangerouslySetInnerHTML={{ __html: article }}></div>
           </Watermark>
-          <Affix offsetTop={300}>
-            {/* <div>大纲</div> */}
-            <div id='toc' className={articleStyles.toc}></div>
-          </Affix>
         </Row>
         <FloatButton.BackTop visibilityHeight={500} />
       </main>

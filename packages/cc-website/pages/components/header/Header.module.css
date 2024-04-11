@@ -3,10 +3,6 @@
   height: 80px;
   color: black;
   background-color: rgba(239, 248, 255, 1);
-  z-index: 10;
-  position: sticky;
-  top: 0;
-  right: 0;
   display: flex;
   align-items: center;
   padding: 0 48px;
@@ -22,67 +18,4 @@
 
 .avatar {
   border-radius: 50%;
-}
-
-.banner {
-  position: relative;
-  width: 100vw;
-  height: 40vh;
-  display: flex;
-  justify-content: center;
-  padding: 0 10rem;
-  background-color: white;
-}
-
-.bannerImage {
-  width: 100vw;
-  height: calc(100vw / (1920 / 1080));
-}
-
-.info {
-  position: absolute;
-  top: 6vh;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.nickName {
-  font-size: xx-large;
-}
-
-.description {
-  margin-top: 12px;
-  font-size: medium;
-  color: #363636;
-}
-
-.sections {
-  padding: 0 50px;
-  width: calc(100% - 100px);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: rgba(239, 248, 255, 1);
-}
-
-.section {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10px;
-  font-size: 18px;
-  background-color: aliceblue;
-}
-.section:hover {
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  cursor: pointer;
-}
-
-.sectionTitle {
-  margin-left: 10px;
 }

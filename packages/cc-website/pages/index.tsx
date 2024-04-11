@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Header from './components/header/header'
+import Banner from './components/banner/banner'
 import ArticleList from './components/articleList/articleList'
 
 export default function Home() {
@@ -14,7 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Header></Header>
+        <div className={styles.header}>
+          <Header></Header>
+        </div>
+        <Banner></Banner>
         <div className={styles.articleList}>
           <ArticleList></ArticleList>
         </div>

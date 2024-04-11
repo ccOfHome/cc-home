@@ -5,6 +5,7 @@
     "dev": "lerna run dev",
     "watch": "lerna watch",
     "clean": "lerna clean",
+    "build": "lerna run build",
     "publish": "lerna publish"
   },
   "dependencies": {},
